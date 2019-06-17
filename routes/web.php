@@ -12,6 +12,6 @@ use App\Http\Controllers\ShoesContorller;
 |
 */
 
-Route::get('view', 'ShoesContorller@index')->name('top');
-Route::get('view/{shoes_id}', 'ShoesContorller@show');
-Route::post('view/{shoes_i}', 'ShoesContorller@addComment')->name('shoes.comment');
+Route::get('view', 'ShoesController@index')->name('top');
+Route::get('view/{shoes_id}', 'ShoesController@show');
+Route::post('view/{shoes_i}', 'ShoesController@addComment')->name('shoes.comment');

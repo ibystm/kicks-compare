@@ -7,7 +7,7 @@ use App\Models\Comment;
 use App\Models\Manufacture;
 use App\Models\Shoe;
 
-class ShoesContorller extends Controller
+class ShoesController extends Controller
 {
     protected $comment;
     protected $manufacuture;
@@ -31,13 +31,13 @@ class ShoesContorller extends Controller
         $shoe = $this->shoe->find($id);
         $comments = $shoe->comments->all();
         $manufacturer = $this->manufacture->all();
-
         return view('show', compact('shoe', 'comments', 'manufacturer'));
     }
     public function addComment(Request $request)
     {
         $inputs = $request->all();
-        $commnet = $this->comment->create($inputs);
+        $this->comment->create($inputs);
         return redirect()->back();
     }
+
 }
