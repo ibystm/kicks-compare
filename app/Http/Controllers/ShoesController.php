@@ -15,16 +15,24 @@ class ShoesController extends Controller
 
     public function __construct(Comment $comment, Manufacture $manufacture, Shoe $shoe)
     {
+        $this->middleware('auth');
         $this->comment = $comment;
         $this->manufacture = $manufacture;
         $this->shoe = $shoe;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $shoes = $this->shoe->all();
         $manufacturer = $this->manufacture->all();
-        return view('index', compact('shoes', 'manufacturer'));
+
+         if(empty($request['search']))
+         {
+            $shoes = $this->shoe->all();
+        } else {
+            $inputs = $request['search'];
+            $shoes = $this->shoe->searchFromWords($inputs)->get();
+        }
+        return view('index', compact('shoes', 'manufacturer', 'inputs'));
     }
     public function show($id)
     {
