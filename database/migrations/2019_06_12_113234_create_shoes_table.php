@@ -17,6 +17,7 @@ class CreateShoesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('manufacturer_id');
             $table->string('name');
+            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
         });
