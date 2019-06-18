@@ -15,3 +15,7 @@ use App\Http\Controllers\ShoesContorller;
 Route::get('view', 'ShoesController@index')->name('top');
 Route::get('view/{shoes_id}', 'ShoesController@show');
 Route::post('view/{shoes_i}', 'ShoesController@addComment')->name('shoes.comment');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
