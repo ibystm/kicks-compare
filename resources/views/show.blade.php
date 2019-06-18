@@ -6,15 +6,15 @@
         <div class="col-md-5 ml-auto mr-auto my-auto">
             <div class="card-image big">
                 <div class="image-box">
-                    <a href=""><img src="../storage/{{ $shoe->image_url }}" alt="{{ $shoe->name }}の画像"></a>
+                    <a href=""><img src="../storage/{{ $shoe->image_url }}" alt="{{ $shoe->name }}の画像" class="kicks-img"></a>
                 </div>
             </div>
             <div class="card-status big">
                 <div class="good-btn">
-                    <a href="#"><span style="font-size: 1em; color: #f44336;"><i class="far fa-heart">100k</i></span></a>
+                    <a href="#"><span style="font-size: 1em; color: #f44336;"><i class="far fa-heart"></i></span></a>
                 </div>
                 <div class="comments-btn">
-                    <a href="#"><span style="font-size: 1em; color: #c0c0c0;"><i class="far fa-comment-alt">33</i></span></a>
+                    <a href="#"><span style="font-size: 1em; color: #c0c0c0;"><i class="far fa-comment-alt"></i>{{ count($shoe->comments) }}</span></a>
                 </div>
             </div>
         </div>
@@ -22,8 +22,7 @@
             <div class="card-description">
                 <p class="top-kicks-name">{{ $shoe->name }}</p>
                 <p class="kicks-comp">{{ $shoe->manufacturer->name }}</p>
-                <p class="top-text">ムーディーな"オールブラック"仕様が発売予定！
-                    ミュージシャン、ファッションデザイナー、音楽プロデューサーら様々なジャンルでマルチな才能を発揮する"KANYE WEST(カニエ・ウェスト)"。ナイキとのコラボレーションライン"YEEZY"の発売後、"禁断"とも言えるアディダスへの移籍を発表。2015年2月には自らがディレクションした"YEEZY 750 BOOST(イージー 750 ブースト)"をリリース。</p>
+                <p class="top-text">{{ $shoe->description }}</p>
             </div>
         </div>
     </div>
@@ -45,7 +44,9 @@
             <p>レビュ-を書く</p>
             <form action="{{ route('shoes.comment', $shoe->id) }}" method="post">
                 @csrf
-                <textarea class="form-control" name="comments" placeholder="write your comments about this kicks..." cols="40" rows="10"></textarea>
+                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                <input type="hidden" name="shoes_id" value="{{ $shoe->id }}">
+                <textarea class="form-control" name="comment" placeholder="write your comments about this kicks..." cols="40" rows="10"></textarea>
                 <button type="submit" class="btn btn-primary comment-btn" value="送信">送信</button>
             </form>
         </div>
