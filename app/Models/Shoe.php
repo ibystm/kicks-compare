@@ -29,5 +29,8 @@ class Shoe extends Model
     {
         return $this->belongsTo(Manufacture::class);
     }
-
+    public function searchFromWords($words)
+    {
+        return $this->where('name', 'like', '%'.$words.'%')->orderBy('created_at', 'desc');
+    }
 }
