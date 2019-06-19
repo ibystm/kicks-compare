@@ -11,6 +11,7 @@ class Comment extends Model implements HasMedia
     use HasMediaTrait;
 
     protected $fillable = [
+        'user_id',
         'shoes_id',
         'comment',
         'created_at',
