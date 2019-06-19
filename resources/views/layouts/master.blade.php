@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>Kicks Compare</title>
+    <title>KICKS COMPARE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="{{ asset('dist/css/vendor/bootstrap.min.css') }}" rel="stylesheet">
@@ -29,19 +29,22 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="active"><a href="{{ route('top') }}">ALL</a></li>
                 <li class="dropdown">
-                  <a href="" class="dropdown" data-toggle="dropdown">BRAND<span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                      @foreach($manufacturer as $manufacture)
-                      <li class="dropdown-item"><a href="">{{ $manufacture->name }}</a></li>
-                      @endforeach
-                  </ul>
+                    <a href="#" class="dropdown" data-toggle="dropdown">BRAND<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        @foreach($manufacturer as $manufacture)
+                        <li class="dropdown-item"><button class="btn btn-default">{{ $manufacture->name }}</button></li>
+                        @endforeach
+                    </ul>
                 </li>
                 <li><a href="">ABOUT US</a></li>
+                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">LOGOUT</a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                </li>
             </ul>
-            <form class="navbar-form form-inline my-2 my-lg-0" action="#" role="search">
+            <form class="navbar-form form-inline my-2 my-lg-0" action="{{ route('top') }}" method="get" role="search">
                 <div class="form-group">
                     <div class="input-group">
-                        <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+                        <input class="form-control" id="navbarInput-01" name="search" type="text" placeholder="Search" value="{{ empty($inputs)? null : $inputs }}">
                         <span class="input-group-btn">
                             <button type="submit" class="btn"><span class="fui-search"></span></button>
                         </span>
