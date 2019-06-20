@@ -33,4 +33,8 @@ class Shoe extends Model
     {
         return $this->where('name', 'like', '%'.$words.'%')->orderBy('created_at', 'desc');
     }
+    public function searchFromManu($id)
+    {
+        return $this->where('manufacturer_id', $id)->orderBy('created_at', 'desc');
+    }
 }
