@@ -30,13 +30,19 @@
                 <li class="active"><a href="{{ route('top') }}">ALL</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown" data-toggle="dropdown">BRAND<span class="caret"></span></a>
+                    <form action="{{ route('top') }}" action="get" name="form-hoge">
                     <ul class="dropdown-menu" role="menu">
                         @foreach($manufacturer as $manufacture)
-                        <li class="dropdown-item"><button class="btn btn-default">{{ $manufacture->name }}</button></li>
+                        <li class="dropdown-item" style="padding: 0;">
+                          <button class="btn comp-dp-btn" type="submit" id="{{ $manufacture->id }}" style="width: 100%;">
+                            {{ $manufacture->name }}
+                          </button>
+                        </li>
                         @endforeach
+                        <input id="manufacturer-val" type="hidden" name="manufacturer_id">
                     </ul>
+                    </form>
                 </li>
-                <li><a href="">ABOUT US</a></li>
                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">LOGOUT</a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                 </li>
@@ -67,16 +73,10 @@
                 <ul class="menu">
                      <span>Menu</span>
                      <li>
-                        <a href="#">Home</a>
+                        <a href="{{ route('top') }}">ALL KICKS</a>
                       </li>
                       <li>
-                         <a href="#">About</a>
-                      </li>
-                      <li>
-                        <a href="#">Blog</a>
-                      </li>
-                      <li>
-                         <a href="#">Gallery </a>
+                         <a href="#">ABOUT US</a>
                       </li>
                  </ul>
             </div>
