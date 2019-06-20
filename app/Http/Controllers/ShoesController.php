@@ -15,7 +15,7 @@ class ShoesController extends Controller
 
     public function __construct(Comment $comment, Manufacture $manufacture, Shoe $shoe)
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
         $this->comment = $comment;
         $this->manufacture = $manufacture;
         $this->shoe = $shoe;
@@ -24,15 +24,18 @@ class ShoesController extends Controller
     public function index(Request $request)
     {
         $manufacturer = $this->manufacture->all();
-
-         if(empty($request['search']))
+         if ($request->has('search'))
          {
-            $shoes = $this->shoe->all();
-        } else {
             $inputs = $request['search'];
             $shoes = $this->shoe->searchFromWords($inputs)->get();
+
+        } elseif ($request->has('manufacturer_id')) {
+            $shoes = $this->shoe->searchFromManu($request['manufacturer_id'])->get();
+        } else {
+            $shoes = $this->shoe->all();
+            $pickup = $this->shoe->orderby('created_at', 'desc')->first();
         }
-        return view('index', compact('shoes', 'manufacturer', 'inputs'));
+        return view('index', compact('shoes', 'manufacturer', 'pickup', 'inputs'));
     }
     public function show($id)
     {
@@ -43,9 +46,14 @@ class ShoesController extends Controller
     }
     public function addComment(Request $request)
     {
-        $inputs = $request->all();
-        $this->comment->create($inputs);
-        return redirect()->back();
+        if ($request->has('user_id'))
+        {
+            $inputs = $request->all();
+            $this->comment->create($inputs);
+            return redirect()->back();
+        } else {
+            return redirect()->to('login');
+        }
     }
 
 }
