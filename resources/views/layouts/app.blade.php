@@ -21,28 +21,20 @@
     <link href="{{ asset('dist/css/vendor/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/flat-ui.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
-
 </head>
 <body>
     <div class="bg-paper">
         <div id="app">
-        <nav class="navbar navbar-default navbar-expand-lg" role="navigation">
-            @guest
-                <a class="navbar-brand" href="{{ url('/login') }}">
-                KICKS COMPARE
-                </a>
-            @endguest
-            @auth
+        <nav class="navbar navbar-default navbar-lg navbar-expand-lg navbar-fixed-top" role="navigation">
                 <a class="navbar-brand" href="{{ route('top') }}">
                 KICKS COMPARE
                 </a>
-            @endauth
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
             <div class="collapse navbar-collapse" id="navbar-collapse-01">
                 <ul class="nav navbar-nav ml-auto">
                     <!-- <li class="active"><a href="#fakelink">LOGIN</a></li>
                     <li><a href="#fakelink">REGISTER</a></li> -->
-                    @guest
+                @guest
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
