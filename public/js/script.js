@@ -9,4 +9,10 @@ $(function () {
     // 取得したidをlocation.hrefに代入。
     location.href = href;
   });
+
+  $('.comp-dp-btn').on('click', function () {
+    var manufacturer_id = $(this).attr('id');
+    $('#manufacturer-val').val(manufacturer_id);
+    $('form').submit();
+  });
 });
