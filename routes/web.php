@@ -12,10 +12,28 @@ use App\Http\Controllers\ShoesContorller;
 |
 */
 
+// ユーザー認証不要
+Auth::routes();
 Route::get('view', 'ShoesController@index')->name('top');
 Route::get('view/{shoes_id}', 'ShoesController@show');
-Route::post('view/{shoes_i}', 'ShoesController@addComment')->name('shoes.comment');
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () { return redirect('/home'); });
+
+// ユーザーログイン後
+Route::group(['middleware' => 'auth:user'], function() {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('view/{shoes_id}', 'ShoesController@addComment')->name('shoes.comment');
+});
+
+// Admin認証不要
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', function () { return redirect('/admin/home'); });
+    Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'Admin\LoginController@login');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
+Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
+Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+});
+
