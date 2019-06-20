@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<div class="first-card pt-4 pb-4 bg-secondary">
+<div class="first-card pt-4 pb-4">
     <div class="container">
     <div class="row">
         <div class="col-md-5 ml-auto mr-auto my-auto">
