@@ -7,19 +7,34 @@
             <div class="col-md-5 ml-auto mr-auto my-auto">
                 <div class="card-image big">
                     <div class="image-box">
-                        <a href=""><img src="{{ asset('images/adidas_Yeezy_Boost_350_V2_black.png') }}" alt=""></a>
+                        <a href="">
+                            <img
+                            src="{{ asset('images/adidas_Yeezy_Boost_350_V2_black.png') }}"
+                            alt="{{ $pickup->name }}"
+                            >
+                        </a>
                     </div>
                 </div>
                 <div class="card-status big">
                     <div class="good-btn">
-                        <a href="#"><span style="font-size: 1em; color: #f44336;"><i class="far fa-heart">100k</i></span></a>
+                        <a href="#">
+                            <span style="font-size: 1em; color: #f44336;">
+                                <i class="far fa-heart">100k</i>
+                            </span>
+                        </a>
                     </div>
                     <div class="comments-btn">
-                        <a href="#"><span style="font-size: 1em; color: dimgray;"><i class="far fa-comment-alt">33</i></span></a>
+                        <a href="#">
+                            <span style="font-size: 1em; color: dimgray;">
+                                <i class="far fa-comment-alt">33</i>
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-7 ml-auto mr-auto d-flex align-item-center d-flex align-items-center">
+            <div
+            class="col-md-7 ml-auto mr-auto d-flex align-item-center d-flex align-items-center"
+            >
                 <div class="card-description">
                     <p class="top-kicks-name">{{ $pickup->name }}</p>
                     <p class="kicks-comp">{{ $pickup->manufacturer->name }}</p>
@@ -42,7 +57,10 @@
                                 <div class="image-box">
                                     <div class="card-image all">
                                         <a href="view/{{ $shoe->id }}">
-                                            <img src="storage/{{ $shoe->image_url }}" alt="{{ $shoe->name }}の画像">
+                                            <img
+                                            src="storage/{{ $shoe->image_url }}"
+                                            alt="{{ $shoe->name }}の画像"
+                                            >
                                         </a>
                                     </div>
                                 </div>
@@ -51,11 +69,20 @@
                                         <p class="kicks-name">{{ $shoe->name }}</p>
                                         <p class="comp-name">{{ $shoe->manufacturer->name }}</p>
                                         <div class="card-status">
-                                            <div class="good-btn">
-                                                <a href="#"><span style="font-size: 1em; color: #f44336;"><i class="far fa-heart"></i></span></a>
+                                            <div class="like">
+                                                <a href="" class="like-btn">
+                                                    <span style="font-size: 1em; color: #f44336;">
+                                                        <i class="far fa-heart"></i>
+                                                    </span>
+                                                </a>
                                             </div>
                                             <div class="comments-btn">
-                                                <a href="#"><span style="font-size: 1em; color: dimgray;"><i class="far fa-comment-alt"></i>{{ count($shoe->comments) }}</span></a>
+                                                <a href="#">
+                                                    <span style="font-size: 1em; color: dimgray;">
+                                                    <i class="far fa-comment-alt"></i>
+                                                        {{ count($shoe->comments) }}
+                                                    </span>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

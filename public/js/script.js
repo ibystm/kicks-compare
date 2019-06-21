@@ -15,4 +15,9 @@ $(function () {
     $('#manufacturer-val').val(manufacturer_id);
     $('form').submit();
   });
+
+});
+
+$('.like-btn').on('click', function(event) {
+  console.log(event);
 });

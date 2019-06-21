@@ -31,10 +31,14 @@ class Shoe extends Model
     }
     public function searchFromWords($words)
     {
-        return $this->where('name', 'like', '%'.$words.'%')->orderBy('created_at', 'desc');
+        return $this
+                ->where('name', 'like', '%'.$words.'%')
+                ->orderBy('created_at', 'desc');
     }
     public function searchFromManu($id)
     {
-        return $this->where('manufacturer_id', $id)->orderBy('created_at', 'desc');
+        return $this
+                ->where('manufacturer_id', $id)
+                ->orderBy('created_at', 'desc');
     }
 }

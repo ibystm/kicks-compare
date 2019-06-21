@@ -6,19 +6,36 @@
         <div class="col-md-5 ml-auto mr-auto my-auto">
             <div class="card-image big">
                 <div class="image-box">
-                    <a href=""><img src="../storage/{{ $shoe->image_url }}" alt="{{ $shoe->name }}の画像" class="kicks-img"></a>
+                    <a href="">
+                        <img
+                        src="../storage/{{ $shoe->image_url }}"
+                        alt="{{ $shoe->name }}の画像"
+                        class="kicks-img"
+                        >
+                    </a>
                 </div>
             </div>
             <div class="card-status big">
                 <div class="good-btn">
-                    <a href="#"><span style="font-size: 1em; color: #f44336;"><i class="far fa-heart"></i></span></a>
+                    <a href="#">
+                        <span style="font-size: 1em; color: #f44336;">
+                            <i class="far fa-heart"></i>
+                        </span>
+                    </a>
                 </div>
                 <div class="comments-btn">
-                    <a href="#"><span style="font-size: 1em; color: #c0c0c0;"><i class="far fa-comment-alt"></i>{{ count($shoe->comments) }}</span></a>
+                    <a href="#">
+                        <span style="font-size: 1em; color: #c0c0c0;">
+                            <i class="far fa-comment-alt"></i>
+                            {{ count($shoe->comments) }}
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-7 ml-auto mr-auto d-flex align-item-center d-flex align-items-center">
+        <div
+        class="col-md-7ml-auto mr-auto d-flex align-item-center d-flex align-items-center"
+        >
             <div class="card-description">
                 <p class="top-kicks-name">{{ $shoe->name }}</p>
                 <p class="kicks-comp">{{ $shoe->manufacturer->name }}</p>
@@ -42,12 +59,25 @@
         </div>
         <div class="comment-area">
             <p>レビュ-を書く</p>
-            <form action="{{ route('shoes.comment', $shoe->id) }}" method="post">
+            <form
+            action="{{ route('shoes.comment', $shoe->id) }}"
+            method="post"
+            >
                 @csrf
                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                 <input type="hidden" name="shoes_id" value="{{ $shoe->id }}">
-                <textarea class="form-control" name="comment" placeholder="write your comments about this kicks..." cols="40" rows="10"></textarea>
-                <button type="submit" class="btn btn-primary comment-btn" value="送信">送信</button>
+                <textarea
+                class="form-control"
+                name="comment"
+                placeholder="write your comments about this kicks..."
+                cols="40"
+                rows="10"
+                ></textarea>
+                <button
+                type="submit"
+                class="btn btn-primary comment-btn"
+                value="送信"
+                >送信</button>
             </form>
         </div>
     </div>

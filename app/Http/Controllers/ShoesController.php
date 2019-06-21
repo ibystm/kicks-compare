@@ -13,8 +13,11 @@ class ShoesController extends Controller
     protected $manufacuture;
     protected $shoe;
 
-    public function __construct(Comment $comment, Manufacture $manufacture, Shoe $shoe)
-    {
+    public function __construct(
+        Comment $comment,
+        Manufacture $manufacture,
+        Shoe $shoe
+    ){
         // $this->middleware('auth');
         $this->comment = $comment;
         $this->manufacture = $manufacture;
@@ -27,22 +30,41 @@ class ShoesController extends Controller
          if ($request->has('search'))
          {
             $inputs = $request['search'];
-            $shoes = $this->shoe->searchFromWords($inputs)->get();
+            $shoes = $this
+                    ->shoe->searchFromWords($inputs)
+                    ->get();
 
         } elseif ($request->has('manufacturer_id')) {
-            $shoes = $this->shoe->searchFromManu($request['manufacturer_id'])->get();
+            $shoes = $this
+                    ->shoe
+                    ->searchFromManu($request['manufacturer_id'])
+                    ->get();
         } else {
             $shoes = $this->shoe->all();
-            $pickup = $this->shoe->orderby('created_at', 'desc')->first();
+            $pickup = $this
+                    ->shoe
+                    ->orderby('created_at', 'desc')
+                    ->first();
         }
-        return view('index', compact('shoes', 'manufacturer', 'pickup', 'inputs'));
+        return view('index',
+                compact(
+                    'shoes',
+                    'manufacturer',
+                    'pickup',
+                    'inputs'
+                ));
     }
     public function show($id)
     {
         $shoe = $this->shoe->find($id);
         $comments = $shoe->comments->all();
         $manufacturer = $this->manufacture->all();
-        return view('show', compact('shoe', 'comments', 'manufacturer'));
+        return view('show',
+                compact(
+                    'shoe',
+                    'comments',
+                    'manufacturer'
+                ));
     }
     public function addComment(Request $request)
     {

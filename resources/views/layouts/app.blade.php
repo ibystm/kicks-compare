@@ -14,7 +14,11 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link
+    href="https://fonts.googleapis.com/css?family=Nunito"
+    rel="stylesheet"
+    type="text/css"
+    >
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -25,35 +29,67 @@
 <body>
     <div class="bg-paper">
         <div id="app">
-        <nav class="navbar navbar-default navbar-lg navbar-expand-lg navbar-fixed-top" role="navigation">
+        <nav
+        class="navbar navbar-default navbar-lg navbar-expand-lg navbar-fixed-top"
+        role="navigation"
+        >
                 <a class="navbar-brand" href="{{ route('top') }}">
                 KICKS COMPARE
                 </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
+            <button
+            type="button"
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbar-collapse-01"
+            ></button>
             <div class="collapse navbar-collapse" id="navbar-collapse-01">
                 <ul class="nav navbar-nav ml-auto">
                     <!-- <li class="active"><a href="#fakelink">LOGIN</a></li>
                     <li><a href="#fakelink">REGISTER</a></li> -->
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link" href="{{ route('login') }}">
+                        {{ __('Login') }}
+                    </a>
                 </li>
                @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link" href="{{ route('register') }}">
+                        {{ __('Register') }}
+                    </a>
                 </li>
                 @endif
                 @else
                 <li class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }} <span class="caret"></span>
+                    <a
+                    class="nav-link dropdown-toggle"
+                    href="#" role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    v-pre
+                    >
+                    {{ Auth::user()->name }}
+                    <span class="caret"></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
+                    <div
+                    class="dropdown-menu dropdown-menu-right"
+                    aria-labelledby="navbarDropdown"
+                    >
+                        <a
+                        class="dropdown-item"
+                        href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"
+                        >
                         {{ __('Logout') }}
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form
+                        id="logout-form"
+                        action="{{ route('logout') }}"
+                        method="POST"
+                        style="display: none;"
+                        >
                         @csrf
                         </form>
                     </div>
