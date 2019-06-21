@@ -113,10 +113,7 @@ img {
   display: flex;
   /* justify-content: space-around; */
 }
-.good-btn {
-  /* position: absolute;
-  top: 85%;
-  right: 5%; */
+.like {
   padding-right:  2em;
 }
 .comments-btn i {
