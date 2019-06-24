@@ -22,7 +22,6 @@ class ShoesController extends Controller
         Shoe $shoe,
         Like $like
     ){
-        // $this->middleware('auth');
         $this->comment = $comment;
         $this->manufacture = $manufacture;
         $this->shoe = $shoe;
@@ -32,7 +31,6 @@ class ShoesController extends Controller
     public function index(Request $request)
     {
         $manufacturer = $this->manufacture->all();
-        // $userId = Auth::user()->id;
          if ($request->has('search'))
          {
             $inputs = $request['search'];
@@ -83,6 +81,5 @@ class ShoesController extends Controller
             return redirect()->to('login');
         }
     }
-
-
 }
+
