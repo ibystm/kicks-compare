@@ -47,10 +47,4 @@ class Shoe extends Model
                 ->orderBy('created_at', 'desc');
     }
 
-    // いいねしたuserのidを取得
-    public function liked_by()
-    {
-        return Like::where('user_id', Auth::user()->id)
-                ->first();
-    }
 }
