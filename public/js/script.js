@@ -1,9 +1,9 @@
 $(function () {
-  $('.card').mouseover(function () {
+  $('.image-box').mouseover(function () {
     $(this).css('cursor', 'pointer');
   });
 
-  $('.card').on('click', function () {
+  $('.image-box').on('click', function () {
     // idを取得。.cardクラスをクリックした時に、子要素のaタグのhref属性を取得。
     let href = $(this).children('a').attr('href');
     // 取得したidをlocation.hrefに代入。
