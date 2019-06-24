@@ -16,12 +16,36 @@
                 </div>
             </div>
             <div class="card-status big">
-                <div class="good-btn">
-                    <a href="#">
-                        <span style="font-size: 1em; color: #f44336;">
-                            <i class="far fa-heart"></i>
-                        </span>
-                    </a>
+                <div class="like">
+                    <form
+                    action="{{ route('like', $shoe->id) }}"
+                    method="post"
+                    >
+                        @csrf
+                        <input
+                        type="hidden"
+                        name="shoes_id"
+                        value="{{ $shoe->id }}"
+                        >
+                        @auth
+                            <input
+                            type="hidden"
+                            name="user_id"
+                            value="{{ Auth::user()->id }}"
+                            >
+                        @endauth
+                        <button type="submit" class="like-btn">
+                            <span style="font-size: 1em; color: #f44336;">
+                            @if (($shoe->likes->where('user_id', Auth::id())->first()))
+                                <i class="fas fa-heart"></i>
+                            @else
+                                <i class="far fa-heart"></i>
+                            @endif
+                                {{ count($shoe->likes) }}
+                            </span>
+                        </button>
+                    </form>
+
                 </div>
                 <div class="comments-btn">
                     <a href="#">
