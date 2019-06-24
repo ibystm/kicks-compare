@@ -7,21 +7,44 @@
             <div class="col-md-5 ml-auto mr-auto my-auto">
                 <div class="card-image big">
                     <div class="image-box">
-                        <a href="">
+                        <a href="view/{{ $pickup->id }}">
                             <img
-                            src="{{ asset('images/adidas_Yeezy_Boost_350_V2_black.png') }}"
+                            src="storage/{{ $pickup->image_url }}"
                             alt="{{ $pickup->name }}"
                             >
                         </a>
                     </div>
                 </div>
                 <div class="card-status big">
-                    <div class="good-btn">
-                        <a href="#">
-                            <span style="font-size: 1em; color: #f44336;">
-                                <i class="far fa-heart">100k</i>
-                            </span>
-                        </a>
+                    <div class="like">
+                        <form
+                        action="{{ route('like', $pickup->id) }}"
+                        method="post"
+                        >
+                            @csrf
+                            <input
+                            type="hidden"
+                            name="shoes_id"
+                            value="{{ $pickup->id }}"
+                            >
+                            @auth
+                                <input
+                                type="hidden"
+                                name="user_id"
+                                value="{{ Auth::user()->id }}"
+                                >
+                            @endauth
+                            <button type="submit" class="like-btn">
+                                <span style="font-size: 1em; color: #f44336;">
+                                @if (($pickup->likes->where('user_id', Auth::id())->first()))
+                                    <i class="fas fa-heart"></i>
+                                @else
+                                    <i class="far fa-heart"></i>
+                                @endif
+                                    {{ count($pickup->likes) }}
+                                </span>
+                            </button>
+                        </form>
                     </div>
                     <div class="comments-btn">
                         <a href="#">
@@ -36,9 +59,15 @@
             class="col-md-7 ml-auto mr-auto d-flex align-item-center d-flex align-items-center"
             >
                 <div class="card-description">
-                    <p class="top-kicks-name">{{ $pickup->name }}</p>
-                    <p class="kicks-comp">{{ $pickup->manufacturer->name }}</p>
-                    <p class="top-text">{{ $pickup->description }}</p>
+                    <p class="top-kicks-name">
+                        {{ $pickup->name }}
+                    </p>
+                    <p class="kicks-comp">
+                        {{ $pickup->manufacturer->name }}
+                    </p>
+                    <p class="top-text">
+                        {{ $pickup->description }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -66,20 +95,47 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="card-text">
-                                        <p class="kicks-name">{{ $shoe->name }}</p>
-                                        <p class="comp-name">{{ $shoe->manufacturer->name }}</p>
+                                        <p class="kicks-name">
+                                            {{ $shoe->name }}
+                                        </p>
+                                        <p class="comp-name">
+                                            {{ $shoe->manufacturer->name }}
+                                        </p>
                                         <div class="card-status">
                                             <div class="like">
-                                                <a href="" class="like-btn">
-                                                    <span style="font-size: 1em; color: #f44336;">
-                                                        <i class="far fa-heart"></i>
-                                                    </span>
-                                                </a>
+                                                <form
+                                                action="{{ route('like', $shoe->id) }}"
+                                                method="post"
+                                                >
+                                                    @csrf
+                                                    <input
+                                                    type="hidden"
+                                                    name="shoes_id"
+                                                    value="{{ $shoe->id }}"
+                                                    >
+                                                    @auth
+                                                        <input
+                                                        type="hidden"
+                                                        name="user_id"
+                                                        value="{{ Auth::user()->id }}"
+                                                        >
+                                                    @endauth
+                                                    <button type="submit" class="like-btn">
+                                                        <span style="font-size: 1em; color: #f44336;">
+                                                        @if (($shoe->likes->where('user_id', Auth::id())->first()))
+                                                            <i class="fas fa-heart"></i>
+                                                        @else
+                                                            <i class="far fa-heart"></i>
+                                                        @endif
+                                                            {{ count($shoe->likes) }}
+                                                        </span>
+                                                    </button>
+                                                </form>
                                             </div>
                                             <div class="comments-btn">
-                                                <a href="#">
+                                                <a href="">
                                                     <span style="font-size: 1em; color: dimgray;">
-                                                    <i class="far fa-comment-alt"></i>
+                                                        <i class="far fa-comment-alt"></i>
                                                         {{ count($shoe->comments) }}
                                                     </span>
                                                 </a>
@@ -91,7 +147,9 @@
                         </div>
                     @endforeach
                     @if(count($shoes) == 0)
-                        <div class="no-search">NO SERACH RESULTS...</div>
+                        <div class="no-search">
+                            NO SERACH RESULTS...
+                        </div>
                     @endif
 
                 </div>

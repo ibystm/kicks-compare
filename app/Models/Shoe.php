@@ -29,6 +29,11 @@ class Shoe extends Model
     {
         return $this->belongsTo(Manufacture::class);
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'shoes_id');
+    }
+
     public function searchFromWords($words)
     {
         return $this
@@ -40,5 +45,12 @@ class Shoe extends Model
         return $this
                 ->where('manufacturer_id', $id)
                 ->orderBy('created_at', 'desc');
+    }
+
+    // いいねしたuserのidを取得
+    public function liked_by()
+    {
+        return Like::where('user_id', Auth::user()->id)
+                ->first();
     }
 }

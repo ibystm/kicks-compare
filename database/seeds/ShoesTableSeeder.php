@@ -12,6 +12,8 @@ class ShoesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
         DB::table('shoes')->truncate();
         DB::table('shoes')->insert([
             [
@@ -72,6 +74,8 @@ class ShoesTableSeeder extends Seeder
             ],
 
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
     }
 }

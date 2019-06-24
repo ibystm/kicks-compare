@@ -31,7 +31,7 @@
         <div id="app">
         <nav class="navbar navbar-default navbar-expand-lg" role="navigation">
             <a class="navbar-brand" href="{{ route('top') }}">
-            KICKS COMPARE for Administrator
+            for Administrator
             </a>
             <button
             type="button"
@@ -49,7 +49,7 @@
                 </li>
                 <li class="dropdown">
                     <a
-                    class="nav-link dropdown-toggle"
+                    class="nav-link dropdown"
                     href="#"
                     role="button"
                     data-toggle="dropdown"
@@ -57,7 +57,6 @@
                     aria-expanded="false"
                     v-pre
                     >
-                    {{ Auth::user()->name }}
                     <span class="caret"></span>
                     </a>
                     <div

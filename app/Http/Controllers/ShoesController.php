@@ -6,27 +6,33 @@ use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Manufacture;
 use App\Models\Shoe;
+use App\Models\Like;
+use Auth;
 
 class ShoesController extends Controller
 {
     protected $comment;
     protected $manufacuture;
     protected $shoe;
+    protected $like;
 
     public function __construct(
         Comment $comment,
         Manufacture $manufacture,
-        Shoe $shoe
+        Shoe $shoe,
+        Like $like
     ){
         // $this->middleware('auth');
         $this->comment = $comment;
         $this->manufacture = $manufacture;
         $this->shoe = $shoe;
+        $this->like = $like;
     }
 
     public function index(Request $request)
     {
         $manufacturer = $this->manufacture->all();
+        // $userId = Auth::user()->id;
          if ($request->has('search'))
          {
             $inputs = $request['search'];
@@ -77,5 +83,6 @@ class ShoesController extends Controller
             return redirect()->to('login');
         }
     }
+
 
 }

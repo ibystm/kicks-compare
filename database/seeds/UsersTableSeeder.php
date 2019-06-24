@@ -11,13 +11,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
         DB::table('users')->truncate();
         DB::table('users')->insert([
-            [
-                'name' => '高橋康友',
-                'email' => 'rhcp.kdog@gmail.com',
-                'password' => '19968628',
-            ],
+            //
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

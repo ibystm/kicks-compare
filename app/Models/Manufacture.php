@@ -22,6 +22,6 @@ class Manufacture extends Model
     public function shoes()
     {
         // hasManyの場合、外部キーを自身のモデル名のスネークケースに_idを加えたものを自動的に設定する。
-        return $this->hasMany(Shoe::class);
+        return $this->hasMany(Shoe::class, 'manufacturer_id');
     }
 }
