@@ -17,12 +17,14 @@ Auth::routes();
 Route::get('view', 'ShoesController@index')->name('top');
 Route::get('view/{shoes_id}', 'ShoesController@show');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', function () { return redirect('/home'); });
+Route::get('/', function () { return redirect('/view'); });
+
 
 // ユーザーログイン後
 Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::post('view/{shoes_id}', 'ShoesController@addComment')->name('shoes.comment');
+    Route::post('view/like/{shohes_id}', 'LikesController@like')->name('like');
 });
 
 // Admin認証不要
@@ -32,6 +34,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('login', 'Admin\LoginController@login');
 });
 
+// admin認証不要
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
 Route::get('home', 'Admin\HomeController@index')->name('admin.home');
