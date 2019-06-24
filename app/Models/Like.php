@@ -22,3 +22,4 @@ class Like extends Model
         return $this->belongsTo(Shoe::class);
     }
 }
+
