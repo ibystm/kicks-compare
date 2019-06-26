@@ -35,14 +35,14 @@ class ShoesController extends Controller
             $inputs = $request['search'];
             $shoes = $this
                     ->shoe->searchFromWords($inputs)
-                    ->get();
+                    ->paginate(12);
         } elseif ($request->has('manufacturer_id')) {
             $shoes = $this
                     ->shoe
                     ->searchFromManu($request['manufacturer_id'])
-                    ->get();
+                    ->paginate(12);
         } else {
-            $shoes = $this->shoe->all();
+            $shoes = $this->shoe->paginate(12);
             $pickup = $this
                     ->shoe
                     ->orderby('created_at', 'desc')
