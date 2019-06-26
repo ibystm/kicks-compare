@@ -28,7 +28,7 @@
 <body>
     <div class="admin-bg-paper">
         <div id="app">
-        <nav class="navbar navbar-default navbar-expand-lg" role="navigation">
+        <nav class="navbar navbar-default navbar-lg navbar-expand-lg fixed-top" role="navigation">
             <a class="navbar-brand" href="{{ route('top') }}">
             for Administrator
             </a>
