@@ -154,7 +154,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <span class="logo">Kicks Compare</span>
+                    <span class="logo">KICKS COMPARE</span>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <ul class="menu">
