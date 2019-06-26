@@ -160,6 +160,9 @@
     </div>
 </div>
 
+<div class="pagination pagination-inverse page-nate">
+    {{ $shoes->links() }}
+</div>
 @endsection
 
 <!-- ystms-mbp.local:8000 -->
