@@ -8,7 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>KICKS COMPARE</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -39,49 +38,55 @@
             data-toggle="collapse"
             data-target="#navbar-collapse-01"
             ></button>
-            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <div
+            class="collapse navbar-collapse"
+            id="navbar-collapse-01"
+            >
                 <ul class="nav navbar-nav ml-auto">
                 @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.login') }}">
-                        {{ __('Login') }}
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a
-                    class="nav-link dropdown"
-                    href="#"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    v-pre
-                    >
-                    <span class="caret"></span>
-                    </a>
-                    <div
-                    class="dropdown-menu dropdown-menu-right"
-                    aria-labelledby="navbarDropdown"
-                    >
+                    <li class="nav-item">
                         <a
-                        class="dropdown-item"
-                        href="{{ route('admin.logout') }}"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();"
+                        class="nav-link"
+                        href="{{ route('admin.login') }}"
                         >
-                        {{ __('Logout') }}
+                            {{ __('Login') }}
                         </a>
-                        <form
-                        id="logout-form"
-                        action="{{ route('admin.logout') }}"
-                        method="POST"
-                        style="display: none;"
+                    </li>
+                    <li class="dropdown">
+                        <a
+                        class="nav-link dropdown"
+                        href="#"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        v-pre
                         >
-                        @csrf
-                        </form>
-                    </div>
-                </li>
-                @endguest
+                        <span class="caret"></span>
+                        </a>
+                        <div
+                        class="dropdown-menu dropdown-menu-right"
+                        aria-labelledby="navbarDropdown"
+                        >
+                            <a
+                            class="dropdown-item"
+                            href="{{ route('admin.logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                            >
+                                {{ __('Logout') }}
+                            </a>
+                            <form
+                            id="logout-form"
+                            action="{{ route('admin.logout') }}"
+                            method="POST"
+                            style="display: none;"
+                            >
+                            @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @endguest
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav><!-- /navbar -->
