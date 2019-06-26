@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::post('view/like/{shohes_id}', 'LikesController@like')->name('like');
 });
 
+
 // Admin認証不要
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function () { return redirect('/admin/home'); });
@@ -34,9 +35,15 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('login', 'Admin\LoginController@login');
 });
 
-// admin認証不要
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
-Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
-Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+
+// admin認証後
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'],function () {
+    Route::post('/logout', 'Admin\LoginController@logout')->name('admin.logout');
+    Route::get('/home', 'Admin\HomeController@index')->name('admin.home');
+    Route::get('/view', 'Admin\AdminShoesController@index')->name('admin.top');
+    Route::get('/create', 'Admin\AdminShoesController@showCreateForm')->name('admin.create');
+    Route::post('/create', 'Admin\AdminShoesController@create');
+    Route::get('/show/{id}', 'Admin\AdminShoesController@show')->name('admin.show');
+    Route::post('delete/{id}', 'Admin\AdminShoesController@delete')->name('admin.delete');
 });
 
