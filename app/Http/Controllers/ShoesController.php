@@ -7,7 +7,6 @@ use App\Models\Comment;
 use App\Models\Manufacture;
 use App\Models\Shoe;
 use App\Models\Like;
-use Auth;
 
 class ShoesController extends Controller
 {
@@ -37,7 +36,6 @@ class ShoesController extends Controller
             $shoes = $this
                     ->shoe->searchFromWords($inputs)
                     ->get();
-
         } elseif ($request->has('manufacturer_id')) {
             $shoes = $this
                     ->shoe
