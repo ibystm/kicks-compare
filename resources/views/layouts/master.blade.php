@@ -30,11 +30,6 @@
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         <link rel="shortcut icon" href="img/favicon.ico">
 
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-        <!--[if lt IE 9]>
-        <script src="js/vendor/html5shiv.js"></script>
-        <script src="js/vendor/respond.min.js"></script>
-        <![endif]-->
     </head>
     <body>
         <nav
@@ -42,7 +37,7 @@
         role="navigation"
         >
             <a class="navbar-brand" href="{{ route('top') }}">
-            Kicks Compare
+            KICKS COMPARE
             </a>
             <button type="button"
             class="navbar-toggler"
@@ -79,14 +74,14 @@
                                 class="dropdown-item"
                                 style="padding: 0;"
                                 >
-                                <button
-                                class="btn comp-dp-btn"
-                                type="submit"
-                                id="{{ $manufacture->id }}"
-                                style="width: 100%;"
-                                >
-                                    {{ $manufacture->name }}
-                                </button>
+                                    <button
+                                    class="btn comp-dp-btn"
+                                    type="submit"
+                                    id="{{ $manufacture->id }}"
+                                    style="width: 100%;"
+                                    >
+                                        {{ $manufacture->name }}
+                                    </button>
                                 </li>
                                 @endforeach
                                 <input
@@ -144,14 +139,14 @@
                             >
                             <span class="input-group-btn">
                                 <button type="submit" class="btn">
-                                <span class="fui-search"></span>
+                                    <span class="fui-search"></span>
                                 </button>
                             </span>
                         </div>
                     </div>
                 </form>
-            </div><!-- /.navbar-collapse -->
-        </nav><!-- /navbar -->
+            </div>
+        </nav>
 
         @yield('content')
 

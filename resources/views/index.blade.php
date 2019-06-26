@@ -49,7 +49,8 @@
                     <div class="comments-btn">
                         <a href="#">
                             <span style="font-size: 1em; color: dimgray;">
-                                <i class="far fa-comment-alt">33</i>
+                                <i class="far fa-comment-alt"></i>
+                                {{ count($pickup->comments) }}
                             </span>
                         </a>
                     </div>
@@ -158,4 +159,7 @@
         </div>
     </div>
 </div>
+
 @endsection
+
+<!-- ystms-mbp.local:8000 -->
