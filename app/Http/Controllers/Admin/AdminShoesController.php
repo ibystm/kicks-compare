@@ -40,15 +40,15 @@ class AdminShoesController extends Controller
             $inputs = $request['search'];
             $shoes = $this
                     ->shoe->searchFromWords($inputs)
-                    ->get();
+                    ->paginate(12);
 
         } elseif ($request->has('manufacturer_id')) {
             $shoes = $this
                     ->shoe
                     ->searchFromManu($request['manufacturer_id'])
-                    ->get();
+                    ->paginate(12);
         } else {
-            $shoes = $this->shoe->all();
+            $shoes = $this->shoe->paginate(12);
             $pickup = $this
                     ->shoe
                     ->orderby('created_at', 'desc')
@@ -75,10 +75,6 @@ class AdminShoesController extends Controller
         $shoe = new Shoe();
         $shoe->name = $request->name;
         $shoe->manufacturer_id = $request->manufacturer_id;
-        // $shoe->image_url = $request
-        //             ->image_url
-        //             ->storeAs('public/storage/app', $shoe->name . '.jpg', 'public');
-
         $shoe->image_url = Storage::disk('public')
                             ->put($shoe->name.'.jpg', $request->image_url);
 
@@ -96,11 +92,26 @@ class AdminShoesController extends Controller
         return view('admin.detail',compact('shoe'));
     }
 
+    public function edit($id)
+    {
+        $manufacturer = $this->manufacture->all();
+        $shoe = $this->shoe->find($id);
+        return view('admin.edit', compact('shoe', 'manufacturer'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        dd($id);
+        $inputs = $request->all();
+        $shoe = $this->shoe->findOrFail($id);
+
+    }
+
     public function delete($id)
     {
         $shoe = $this->shoe->find($id);
         $shoe->delete();
         return redirect()->route('admin.top');
     }
-
 }
+
