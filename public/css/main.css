@@ -6,9 +6,23 @@ img {
   overflow: hidden;
   border-radius: 1rem;
 }
-/* .comp-dp-btn {
-  width: 100%;
-} */
+.newest {
+  top: 5%;
+  right: 5%;
+  position: absolute;
+  background-color: #edf0f1;
+  border-radius: 0.5rem;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 0.9em;
+}
+.newest > span {
+  padding-top: auto;
+  padding-bottom: auto;
+  line-height: 50px;
+  font-family: 'arial narrow';
+}
 .no-search {
   font-size: 2rem;
   margin: 0 auto;
@@ -90,13 +104,6 @@ img {
   flex-direction: column;
   position: relative;
 }
-
- /* .card-text .kicks-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
-
 .kicks-name {
   margin-bottom: 0;
 }
@@ -180,12 +187,6 @@ img {
   display: block;
   margin: 0.5rem 0 0 auto;
 }
-
-.page-nate {
-  display: flex;
-  justify-content: center;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
 
 footer{
