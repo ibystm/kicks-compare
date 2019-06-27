@@ -44,6 +44,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'],function () {
     Route::get('/create', 'Admin\AdminShoesController@showCreateForm')->name('admin.create');
     Route::post('/create', 'Admin\AdminShoesController@create');
     Route::get('/show/{id}', 'Admin\AdminShoesController@show')->name('admin.show');
+    Route::get('/edit/{id}', 'Admin\AdminShoesController@edit')->name('admin.edit');
+    Route::post('/edit/{id}', 'Admin\AdminShoesController@update')->name('admin.update');
     Route::post('delete/{id}', 'Admin\AdminShoesController@delete')->name('admin.delete');
 });
 
