@@ -26,18 +26,12 @@
         href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
         rel="stylesheet"
         >
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script> -->
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
         <link rel="shortcut icon" href="img/favicon.ico">
-
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-        <!--[if lt IE 9]>
-        <script src="js/vendor/html5shiv.js"></script>
-        <script src="js/vendor/respond.min.js"></script>
-        <![endif]-->
     </head>
     <body>
         <nav
