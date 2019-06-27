@@ -17,6 +17,9 @@
                             >
                         </a>
                     </div>
+                    <div class="newest">
+                        <span>NEW</span>
+                    </div>
                 </div>
             </div>
             <div
@@ -76,7 +79,6 @@
                                 NO SERACH RESULTS...
                             </div>
                         @endif
-
                     </div>
                 </article>
             </main>
@@ -84,5 +86,8 @@
     </div>
 </div>
 
+<div class="container" style="text-align: center;">
+    {{ $shoes->links() }}
+</div>
 @endsection
 
