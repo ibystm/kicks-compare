@@ -13,6 +13,9 @@
                             alt="{{ $pickup->name }}"
                             >
                         </a>
+                        <div class="newest">
+                            <span>NEW</span>
+                        </div>
                     </div>
                 </div>
                 <div class="card-status big">
@@ -160,9 +163,8 @@
     </div>
 </div>
 
-<div class="pagination pagination-inverse page-nate">
+<div class="container" style="text-align: center;">
     {{ $shoes->links() }}
 </div>
 @endsection
 
-<!-- ystms-mbp.local:8000 -->
