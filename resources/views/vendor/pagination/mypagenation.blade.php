@@ -7,7 +7,7 @@
         @endif
         @foreach ($elements as $element)
             @if (is_string($element))
-            <li class="disabled" aria-disabled="true"><span class="page-link">{{ $element }}</span></li>
+                <li class="disabled" aria-disabled="true"><span class="page-link">{{ $element }}</span></li>
             @endif
 
             <ul role="navigation">
@@ -25,10 +25,9 @@
         @endforeach
 
         @if ($paginator->hasMorePages())
-                <a class="btn btn-inverse next" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">NEWER</a>
+            <a class="btn btn-inverse next" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">NEWER</a>
         @else
-                <a class="btn btn-inverse next disabled" href="#">NEWER</a>
-
+            <a class="btn btn-inverse next disabled" href="#">NEWER</a>
         @endif
     </div>
 @endif

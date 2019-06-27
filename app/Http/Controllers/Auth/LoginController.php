@@ -56,5 +56,4 @@ class LoginController extends Controller
             $this->username() => [trans('認証に失敗しました。')],
         ]);
     }
-
 }

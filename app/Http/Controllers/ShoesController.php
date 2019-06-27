@@ -56,6 +56,7 @@ class ShoesController extends Controller
                     'inputs'
                 ));
     }
+
     public function show($id)
     {
         $shoe = $this->shoe->find($id);
@@ -68,10 +69,10 @@ class ShoesController extends Controller
                     'manufacturer'
                 ));
     }
+
     public function addComment(Request $request)
     {
-        if ($request->has('user_id'))
-        {
+        if ($request->has('user_id')) {
             $inputs = $request->all();
             $this->comment->create($inputs);
             return redirect()->back();
@@ -80,4 +81,3 @@ class ShoesController extends Controller
         }
     }
 }
-

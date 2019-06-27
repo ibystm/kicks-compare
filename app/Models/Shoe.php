@@ -46,5 +46,4 @@ class Shoe extends Model
                 ->where('manufacturer_id', $id)
                 ->orderBy('created_at', 'desc');
     }
-
 }

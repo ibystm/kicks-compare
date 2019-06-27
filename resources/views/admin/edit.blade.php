@@ -81,9 +81,7 @@
                 <button class="btn btn-primary btn-wide create-btn">
                     送信
                 </button>
-
             </div>
         </form>
     </div>
 @endsection
-

@@ -10,7 +10,6 @@ use App\Models\Shoe;
 use App\Models\Like;
 use Illuminate\Support\Facades\Storage;
 
-
 class AdminShoesController extends Controller
 {
     protected $comment;
@@ -35,13 +34,11 @@ class AdminShoesController extends Controller
         // $contents = Storage::disk('public')->url('tubularx.jpg');
         // dd($contents);
         $manufacturer = $this->manufacture->all();
-         if ($request->has('search'))
-         {
+         if ($request->has('search')) {
             $inputs = $request['search'];
             $shoes = $this
                     ->shoe->searchFromWords($inputs)
                     ->paginate(12);
-
         } elseif ($request->has('manufacturer_id')) {
             $shoes = $this
                     ->shoe
@@ -114,4 +111,3 @@ class AdminShoesController extends Controller
         return redirect()->route('admin.top');
     }
 }
-

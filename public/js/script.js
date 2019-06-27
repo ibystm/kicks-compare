@@ -54,9 +54,8 @@ $(function () {
     }
   );
 
-  $('a > .disabled').click(function(){
-		return false;
-	})
-
+  $('a > .disabled').click(function () {
+    return false;
+  });
 });
 
