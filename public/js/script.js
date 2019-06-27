@@ -16,13 +16,12 @@ $(function () {
     $('form').submit();
   });
 
-  $(function(){
     //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
     $('form').on('change', 'input[type="file"]', function(e) {
       var file = e.target.files[0],
-          reader = new FileReader(),
-          $preview = $(".preview");
-          t = this;
+        reader = new FileReader(),
+        $preview = $(".preview");
+        t = this;
 
       // 画像ファイル以外の場合は何もしない
       if(file.type.indexOf("image") < 0){
@@ -37,17 +36,27 @@ $(function () {
           // .prevewの領域の中にロードした画像を表示するimageタグを追加
           $preview.append($('<img>').attr({
                     src: e.target.result,
-                    width: "150px",
+                    width: "200px",
                     class: "preview",
-                    title: file.name
                 }));
         };
       })(file);
 
       reader.readAsDataURL(file);
     });
-  });
 
+  $('.delete-btn, .edit-btn').hover(
+    function () {
+      $(this).css('color', '#1abc9c');
+    },
+    function () {
+      $(this).css('color', '#34495e');
+    }
+  );
+
+  $('a > .disabled').click(function(){
+		return false;
+	})
 
 });
 
