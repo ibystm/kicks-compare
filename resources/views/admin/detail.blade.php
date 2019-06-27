@@ -3,7 +3,7 @@
 @section('content')
 <div class="first-card pt-4 pb-4">
     <div class="container">
-        <h3 class="detail-title">Edit view </h3>
+        <h3 class="detail-title">{{ $shoe->name }} PAGE</h3>
         <div class="row detail-box">
                 <div class="col-md-5">
                     <div class="card-image big">
@@ -28,8 +28,12 @@
                     <p class="top-text">
                         {{ $shoe->description }}
                     </p>
-                    <form action="{{ route('admin.delete', $shoe->id) }}" method="post">
+                    <form action="{{ route('admin.delete', $shoe->id) }}" method="post" class="edit-area">
                         @csrf
+                        <a href="{{ route('admin.edit', $shoe->id) }}" class="edit-btn">
+                            <i class="far fa-edit"></i>
+                        </a>
+
                         <input type="hidden" name="id" value="{{ $shoe->id }}">
                         <button type="submit" class="delete-btn">
                             <i class="fas fa-trash-alt"></i>
