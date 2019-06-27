@@ -50,9 +50,9 @@
             >
                 <ul class="nav navbar-nav ml-auto">
                     <li class="active">
-                    <a href="{{ route('top') }}">
-                        ALL
-                    </a>
+                        <a href="{{ route('top') }}">
+                            ALL
+                        </a>
                     </li>
                     <li class="dropdown">
                         <a
@@ -113,11 +113,11 @@
                 @endauth
                 @guest
                     <li>
-                    <a
-                    href="{{ route('login') }}"
-                    >
-                    LOGIN
-                    </a>
+                        <a
+                        href="{{ route('login') }}"
+                        >
+                            LOGIN
+                        </a>
                     </li>
                 @endguest
                 </ul>
@@ -206,3 +206,4 @@
         <script src="{{ asset('js/script.js') }}"></script>
     </body>
 </html>
+
