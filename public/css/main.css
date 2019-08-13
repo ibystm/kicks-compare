@@ -2,10 +2,12 @@ body {
   padding-top: 76px;
   font-family: 'Roboto', sans-serif;
 }
+
 img {
   overflow: hidden;
   border-radius: 1rem;
 }
+
 .newest {
   top: 5%;
   right: 5%;
@@ -17,30 +19,36 @@ img {
   text-align: center;
   font-size: 0.9em;
 }
+
 .newest > span {
   padding-top: auto;
   padding-bottom: auto;
   line-height: 50px;
   font-family: 'arial narrow';
 }
+
 .no-search {
   font-size: 2rem;
   margin: 0 auto;
 }
+
 .kicks-name {
   font-family: 'Oswald', sans-serif;
   font-size: 1rem;
   white-space: nowrap;
 }
+
 .second-card {
   padding: 80px 0 40px;
 }
+
 .card-description .top-kicks-name {
   text-align: center;
   margin-bottom: 0;
   font-family: 'Oswald', sans-serif;
   font-size: 2.5rem;
 }
+
 .card-description .kicks-comp {
   text-align: center;
   margin-bottom: 0;
@@ -51,6 +59,7 @@ img {
   display: inline-block;
   padding: 1.5rem;
 }
+
 .card {
   border-radius: 0.25rem;
   display: inline-block;
@@ -60,16 +69,19 @@ img {
   border: none;
   margin-bottom: 1rem;
 }
+
 .card-image {
   border-radius: 1rem;
   position: relative;
   overflow: hidden;
 }
+
 .card-image.big {
   display: block;
   margin: auto;
   position: relative;
 }
+
 .card-image img {
   display: block;
   width: 100%;
@@ -83,20 +95,24 @@ img {
 .image-box {
   position: relative;
 }
+
 .card-image img {
   -webkit-transform: scale(1);
   transform: scale(1);
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
 }
+
 .card-image img:hover {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
   opacity: 0.5;
 }
+
 .card-description {
   font-size: 12px;
 }
+
 .card-text {
   display: flex;
   justify-content: center;
@@ -104,6 +120,7 @@ img {
   flex-direction: column;
   position: relative;
 }
+
 .kicks-name {
   margin-bottom: 0;
 }
@@ -112,10 +129,11 @@ img {
   font-size: 13px;
   margin-bottom: 5px;
 }
+
 .card-status {
   display: flex;
-  /* justify-content: space-around; */
 }
+
 .card-status.big {
   display: flex;
   justify-content: center;
@@ -123,9 +141,11 @@ img {
   margin: 1rem auto 0;
 
 }
+
 .like {
   padding-right:  2em;
 }
+
 .like-btn {
   background-color: transparent;
   border: none;
@@ -134,9 +154,11 @@ img {
   padding: 0;
   appearance: none;
 }
+
 .comments-btn i {
   margin-right: 0.5rem;
 }
+
 .comment-list {
   margin-top: 20px;
   display: flex;
@@ -145,6 +167,7 @@ img {
   padding: 1rem 3rem 2rem 3rem;
 
 }
+
 .comment-title p {
   padding-top: 2rem;
   font-size: 2rem;
@@ -152,6 +175,7 @@ img {
   font-family: 'Oswald', sans-serif;
 
 }
+
 .baloon {
   display: inline-block;
   position: relative;
@@ -160,6 +184,7 @@ img {
   border-radius: 1rem;
   background: #EEEEEE;
 }
+
 .baloon:after {
   content: "";
   display: inline-block;
@@ -169,6 +194,7 @@ img {
   border: 12px solid transparent;
   border-right: 12px solid #EEEEEE;
 }
+
 .chatting {
   margin: 0;
   padding: 0;
@@ -177,16 +203,20 @@ img {
 .comment-area {
   margin-bottom: 50px;
 }
+
 .comment-area p {
   margin-left: 1rem;
 }
+
 .comment-area textarea {
   padding: 1.5rem;
 }
+
 .comment-btn {
   display: block;
   margin: 0.5rem 0 0 auto;
 }
+
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
 
 footer{
@@ -236,4 +266,3 @@ footer{
     margin-right: 10px;
     font-size:18px;
 }
-

@@ -2,27 +2,32 @@
   display: block;
   margin: 1rem 0 0 auto;
 }
+
 .newkicks-title {
   text-align: center;
 }
+
 .detail-title {
   text-align: center;
   margin: 1rem auto 5rem;
 }
+
 .detail-box {
   margin-bottom: 5rem;
 }
+
 .edit-area {
   display: flex;
   justify-content: flex-end;
 }
+
 .edit-btn {
   padding: 0rem;
   font-size: 2rem;
   color: black;
   display: block;
-
 }
+
 .delete-btn {
   font-size: 2rem;
   background-color: transparent;
@@ -32,5 +37,4 @@
   margin: 0 3rem 0;
   appearance: none;
   display: block;
-
 }
