@@ -47,6 +47,7 @@ class ShoesController extends Controller
                     ->shoe
                     ->searchFromManu($request['manufacturer_id'])
                     ->paginate(12);
+            $pickup = null;
         } else {
             $shoes = $this->shoe->paginate(12);
             $pickup = $this
