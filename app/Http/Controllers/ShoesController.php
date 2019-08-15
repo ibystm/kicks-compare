@@ -30,12 +30,19 @@ class ShoesController extends Controller
     public function index(Request $request)
     {
         $manufacturer = $this->manufacture->all();
-         if ($request->has('search'))
-         {
+         if ($request->has('search')) {
             $inputs = $request['search'];
             $shoes = $this
                     ->shoe->searchFromWords($inputs)
                     ->paginate(12);
+
+            return view('index',
+                        compact(
+                            'shoes',
+                            'manufacturer',
+                            'pickup',
+                            'inputs'
+                        ));
         } elseif ($request->has('manufacturer_id')) {
             $shoes = $this
                     ->shoe
@@ -52,8 +59,7 @@ class ShoesController extends Controller
                 compact(
                     'shoes',
                     'manufacturer',
-                    'pickup',
-                    'inputs'
+                    'pickup'
                 ));
     }
 
