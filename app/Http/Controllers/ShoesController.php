@@ -40,7 +40,6 @@ class ShoesController extends Controller
                         compact(
                             'shoes',
                             'manufacturer',
-                            'pickup',
                             'inputs'
                         ));
         } elseif ($request->has('manufacturer_id')) {
