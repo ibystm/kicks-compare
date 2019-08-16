@@ -50,7 +50,6 @@ class ShoesController extends Controller
             $pickup = null;
         } else {
             $shoes = $this->shoe->paginate(12);
-            dd($shoes);
             $pickup = $this
                     ->shoe
                     ->orderby('created_at', 'desc')
