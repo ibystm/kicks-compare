@@ -64,10 +64,10 @@
             >
                 <div class="card-description">
                     <p class="top-kicks-name">
-                        {{ dd($pickup->name) }}
+                        {{ $pickup->name }}
                     </p>
                     <p class="kicks-comp">
-                        {{ $pickup->manufacturer->name }}
+                        {{ dd($pickup->manufacturer->name) }}
                     </p>
                     <p class="top-text">
                         {{ $pickup->description }}
