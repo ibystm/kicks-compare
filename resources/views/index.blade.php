@@ -67,7 +67,7 @@
                         {{ $pickup->name }}
                     </p>
                     <p class="kicks-comp">
-                        {{ dd($pickup->manufacturer->name) }}
+                        {{ $pickup->manufacturer->name }}
                     </p>
                     <p class="top-text">
                         {{ $pickup->description }}
