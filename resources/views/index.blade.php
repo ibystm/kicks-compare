@@ -100,7 +100,7 @@
                                 <div class="card-body">
                                     <div class="card-text">
                                         <p class="kicks-name">
-                                            {{ dd($shoe->name) }}
+                                            {{ $shoe->name }}
                                         </p>
                                         <p class="comp-name">
                                             {{ $shoe->manufacturer->name }}

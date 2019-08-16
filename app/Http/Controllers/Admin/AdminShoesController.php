@@ -31,19 +31,25 @@ class AdminShoesController extends Controller
 
     public function index(Request $request)
     {
-        // $contents = Storage::disk('public')->url('tubularx.jpg');
-        // dd($contents);
         $manufacturer = $this->manufacture->all();
-         if ($request->has('search')) {
+        if ($request->has('search')) {
             $inputs = $request['search'];
             $shoes = $this
                     ->shoe->searchFromWords($inputs)
                     ->paginate(12);
+
+            return view('index',
+                        compact(
+                            'shoes',
+                            'manufacturer',
+                            'inputs'
+                        ));
         } elseif ($request->has('manufacturer_id')) {
             $shoes = $this
                     ->shoe
                     ->searchFromManu($request['manufacturer_id'])
                     ->paginate(12);
+            $pickup = null;
         } else {
             $shoes = $this->shoe->paginate(12);
             $pickup = $this
@@ -51,12 +57,11 @@ class AdminShoesController extends Controller
                     ->orderby('created_at', 'desc')
                     ->first();
         }
-        return view('admin.index',
+        return view('index',
                 compact(
                     'shoes',
                     'manufacturer',
-                    'pickup',
-                    'inputs'
+                    'pickup'
                 ));
     }
 
