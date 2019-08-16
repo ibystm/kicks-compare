@@ -91,7 +91,7 @@
                                     <div class="card-image all">
                                         <a href="view/{{ $shoe->id }}">
                                             <img
-                                            src="storage/{{ $shoe->image_url }}"
+                                            src="/storage/{{ $shoe->image_url }}"
                                             alt="{{ $shoe->name }}の画像"
                                             >
                                         </a>
