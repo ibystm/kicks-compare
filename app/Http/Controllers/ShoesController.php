@@ -30,18 +30,18 @@ class ShoesController extends Controller
     public function index(Request $request)
     {
         $manufacturer = $this->manufacture->all();
-         if ($request->has('search')) {
-            $inputs = $request['search'];
-            $shoes = $this
-                    ->shoe->searchFromWords($inputs)
-                    ->paginate(12);
+        if ($request->has('search')) {
+        $inputs = $request['search'];
+        $shoes = $this
+                ->shoe->searchFromWords($inputs)
+                ->paginate(12);
 
-            return view('index',
-                        compact(
-                            'shoes',
-                            'manufacturer',
-                            'inputs'
-                        ));
+        return view('index',
+                    compact(
+                        'shoes',
+                        'manufacturer',
+                        'inputs'
+                    ));
         } elseif ($request->has('manufacturer_id')) {
             $shoes = $this
                     ->shoe
