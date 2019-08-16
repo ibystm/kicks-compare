@@ -30,7 +30,6 @@ class ShoesController extends Controller
     public function index(Request $request)
     {
         $manufacturer = $this->manufacture->all();
-        dd($manufacturer);
         if ($request->has('search')) {
             $inputs = $request['search'];
             $shoes = $this
@@ -51,6 +50,7 @@ class ShoesController extends Controller
             $pickup = null;
         } else {
             $shoes = $this->shoe->paginate(12);
+            dd($shoes);
             $pickup = $this
                     ->shoe
                     ->orderby('created_at', 'desc')
