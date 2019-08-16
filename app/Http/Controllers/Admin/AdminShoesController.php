@@ -81,7 +81,6 @@ class AdminShoesController extends Controller
                             ->put($shoe->name.'.jpg', $request->image_url);
 
         $shoe->description = $request->description;
-        dd($shoe);
         $shoe->save();
         return redirect()->route('admin.show', [
             'id' => $shoe->id,
