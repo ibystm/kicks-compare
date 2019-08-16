@@ -38,7 +38,7 @@ class AdminShoesController extends Controller
                     ->shoe->searchFromWords($inputs)
                     ->paginate(12);
 
-            return view('index',
+            return view('admin.index',
                         compact(
                             'shoes',
                             'manufacturer',
@@ -57,7 +57,7 @@ class AdminShoesController extends Controller
                     ->orderby('created_at', 'desc')
                     ->first();
         }
-        return view('index',
+        return view('admin.index',
                 compact(
                     'shoes',
                     'manufacturer',
