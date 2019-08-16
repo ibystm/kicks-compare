@@ -103,7 +103,7 @@
                                             {{ $shoe->name }}
                                         </p>
                                         <p class="comp-name">
-                                            {{ $shoe->manufacturer->name }}
+                                            {{ var_dump($shoe->manufacturer->name) }}
                                         </p>
                                         <div class="card-status">
                                             <div class="like">
