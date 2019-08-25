@@ -9,7 +9,7 @@
                     <div class="image-box">
                         <a href="view/{{ $pickup->id }}">
                             <img
-                            src="storage/{{ $pickup->image_url }}"
+                            src="/storage/{{ $pickup->image_url }}"
                             alt="{{ $pickup->name }}"
                             >
                         </a>
