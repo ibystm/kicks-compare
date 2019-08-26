@@ -78,7 +78,7 @@ class AdminShoesController extends Controller
         $shoe->name = $request->name;
         $shoe->manufacturer_id = $request->manufacturer_id;
         $shoe->image_url = Storage::disk('public')
-                            ->put($shoe->name.'.jpg', $request->image_url);
+                            ->put($shoe->name.'.jpg', $request->image_url, 'public');
 
         $shoe->description = $request->description;
         $shoe->save();
