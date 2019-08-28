@@ -55,7 +55,7 @@ return [
             'visibility' => 'public',
             'permissions' => [ // permissions 設定値を追記
                 'dir' => [
-                    'public'  => 0777, // public なディレクトリは775で作成
+                    'public'  => 0775, // public なディレクトリは775で作成
                 ],
                 'file' => [
                     'public' => 0664, // public なファイルは664で作成
