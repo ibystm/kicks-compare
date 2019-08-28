@@ -14,6 +14,7 @@ use App\Http\Controllers\ShoesContorller;
 
 // ユーザー認証不要
 Auth::routes();
+Route::get('/login', 'LoginController@showLoginForm')->name('login');
 Route::get('view', 'ShoesController@index')->name('top');
 Route::get('view/{shoes_id}', 'ShoesController@show');
 Route::get('/home', 'HomeController@index')->name('home');
