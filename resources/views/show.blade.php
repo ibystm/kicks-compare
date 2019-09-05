@@ -8,7 +8,7 @@
                     <div class="image-box">
                         <a href="">
                             <img
-                            src="../storage/{{ $shoe->image_url }}"
+                            src="{{ url($shoe->image_url) }}"
                             alt="{{ $shoe->name }}の画像"
                             class="kicks-img"
                             >

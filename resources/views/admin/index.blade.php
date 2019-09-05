@@ -11,7 +11,7 @@
                     <div class="image-box">
                         <a href="show/{{ $pickup->id }}">
                             <img
-                            src="../storage/{{ $pickup->image_url }}"
+                            src="{{ url($pickup->image_url) }}"
                             alt="{{ $pickup->name }}"
                             style="max-width: 500px; max-height: 500px"
                             >
@@ -54,7 +54,7 @@
                                         <div class="card-image all">
                                             <a href="show/{{ $shoe->id }}">
                                                 <img
-                                                src="../storage/{{ $shoe->image_url }}"
+                                                src="{{ url($shoe->image_url) }}"
                                                 alt="{{ $shoe->name }}の画像"
                                                 style="max-width: 300px; max-height: 300px"
                                                 >

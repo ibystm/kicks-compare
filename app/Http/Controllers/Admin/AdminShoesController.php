@@ -74,17 +74,18 @@ class AdminShoesController extends Controller
 
     public function create(Request $request)
     {
+        $disk = Storage::disk('s3');
         $shoe = new Shoe();
         $shoe->name = $request->name;
         $shoe->manufacturer_id = $request->manufacturer_id;
-        $filename = $request->file('image_url')->getClientOriginalName();
+        // $filename = $request->file('image_url')->getClientOriginalName();
 
-        $path = $request->file('image_url')->storeAs('', $filename, ['disk' => 'public']);
-        $shoe->image_url = $path;
+        // $path = $request->file('image_url')->storeAs('', $filename, ['disk' => 'public']);
+        // $shoe->image_url = $path;
 
-        // $shoe->image_url = Storage::disk('public')
-        // ->put($shoe->name.'.jpg', $request->image_url, 'public');
+        $image_dir = $disk->put('kicks', $request->image_url, 'public');
 
+        $shoe->image_url = $disk->url($image_dir);
         $shoe->description = $request->description;
         $shoe->save();
         return redirect()->route('admin.show', [

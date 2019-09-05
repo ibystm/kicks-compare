@@ -9,7 +9,7 @@
                     <div class="card-image big">
                         <div class="image-box">
                             <img
-                            src="../../storage/{{ $shoe->image_url }}"
+                            src="{{ url($shoe->image_url) }}"
                             alt="{{ $shoe->name }}の写真"
                             >
                         </div>
