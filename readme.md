@@ -41,8 +41,7 @@
     laravel 5.8
 * DB
     * mysql 5.8 開発環境
-    * clearDB    本番環境
-
+    * clearDB 本番環境
 
 * フロントエンド
     * Bootstrap 4.0
