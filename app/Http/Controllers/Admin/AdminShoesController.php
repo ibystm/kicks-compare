@@ -78,13 +78,7 @@ class AdminShoesController extends Controller
         $shoe = new Shoe();
         $shoe->name = $request->name;
         $shoe->manufacturer_id = $request->manufacturer_id;
-        // $filename = $request->file('image_url')->getClientOriginalName();
-
-        // $path = $request->file('image_url')->storeAs('', $filename, ['disk' => 'public']);
-        // $shoe->image_url = $path;
-
         $image_dir = $disk->put('kicks', $request->image_url, 'public');
-
         $shoe->image_url = $disk->url($image_dir);
         $shoe->description = $request->description;
         $shoe->save();
@@ -108,31 +102,29 @@ class AdminShoesController extends Controller
 
     public function update(Request $request, $id)
     {
-        // リクエストの全情報の取得
-        // imageファイルの取得
-        // $file = $inputs['image_url'];
-        // s3ストレージの指定
         $disk = Storage::disk('s3');
-        // // s3の保存先ディレクトリを指定して、保存
-        // $image_dir = $disk->put('kicks', $file, 'public');
-        // 変更先レコード(オブジェクト)をidを指定して取得
         $shoe = $this->shoe->findOrFail($id);
         $shoe->name = $request->name;
         $shoe->manufacturer_id = $request->manufacturer_id;
         $image_dir = $disk->put('kicks', $request->image_url, 'public');
-
+        if ( $shoe->image_url ) {
+            $d = parse_url($shoe->image_url);
+            dd($d);
+            $disk->delete($shoe->image_url);
+        }
         $shoe->image_url = $disk->url($image_dir);
         $shoe->description = $request->description;
         $shoe->save();
-
         return view('admin.detail', compact('shoe'));
-
     }
 
     public function delete($id)
     {
         $shoe = $this->shoe->find($id);
+        $file = $shoe->image_url;
         $shoe->delete();
+        $disk = Storage::disk('s3');
+        $disk->delete($file);
         return redirect()->route('admin.top');
     }
 }
