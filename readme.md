@@ -36,11 +36,11 @@
 
 ## 使用技術
 * 言語
-    php 7.1
+    PHP 7.1
 * FW
-    laravel 5.7
+    Laravel 5.7
 * DB
-    * mysql 5.8 開発環境
+    * MySQL 5.8 開発環境
     * clearDB 本番環境
 
 * フロントエンド
