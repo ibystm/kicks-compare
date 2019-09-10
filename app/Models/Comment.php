@@ -3,12 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
 
 class Comment extends Model implements HasMedia
 {
-    use HasMediaTrait;
-
     protected $fillable = [
         'user_id',
         'shoes_id',
