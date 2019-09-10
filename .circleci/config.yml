@@ -44,8 +44,8 @@ jobs:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
 
-      # run tests!
-      - run: php ./vendor/bin/phpunit
+      # # run tests!
+      # - run: php ./vendor/bin/phpunit
 
       #heroku deploy
       - deploy:
