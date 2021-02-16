@@ -10,7 +10,7 @@ This is a social networking site that specializes in sharing sneaker sizes and c
  If you want to log in as a test user, please use the following account.
  Please note that only admin users can add, edit, or delete new sneaker information.
 
-Test User Account
+### Test User Account
  email: admin@admin.com
  password: pass123
 
@@ -36,8 +36,7 @@ Test User Account
     * admin user management functions
         * Logout function
 
-
-## 使用技術
+## Technology used
 * Backend
     PHP 7.1
 * FW
